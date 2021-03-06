@@ -1,0 +1,51 @@
+import time
+from selenium.webdriver.common.by import By
+from ultis.common.selenium import selenium
+from ultis.common.selenium_tools import selenium_tools
+
+class anotepad_login_page():
+    '''this class will define all locators and function on Register Page'''
+    
+    def __init__(self):
+        
+        self.ANOTEPAD_LOGIN_BTN = "#bs-example-navbar-collapse-1 > div > ul > li:nth-child(4) > a > span"
+        self.LOGIN_USERNAME_ACCOUNT = "input#loginEmail"
+	self.LOGIN_PASSWORD_ACCOUNT = "input#password"   
+	self.LOGIN_BTN = "button#submit"   
+	seff.LOGIN_TEXT = "#create_login > div:nth-child(3) > form > h1"
+        
+    def load_login_register_page(self, driver):
+        #Verify that Login button is working fine
+        if selenium().wait_for_element_appear(driver, By.CSS_SELECTOR, self.ANOTEPAD_LOGIN_BTN, 5):
+            return True
+        else:
+            return False
+	driver.find_element(By.CSS_SELECTOR, elf.ANOTEPAD_LOGIN_BTN).click()
+
+    def load_logon_page(self, driver):
+
+        if selenium().wait_for_element_appear(driver, By.CSS_SELECTOR, seff.LOGIN_TEXT, 10): 
+            print("Go to next page successfully")
+            return True
+        else:
+            raise AssertionError("Not found new project button" + '\n\n\n')
+            return  False 
+
+    def input_designer_username(self, driver,  username_register):
+        username_tf = driver.find_element(By.CSS_SELECTOR, self.self.LOGIN_USERNAME_ACCOUNT)
+        username_tf.clear()
+        username_tf.send_keys(username_register)
+        logger.info("input username successfully")
+           
+        
+    def input_designer_password(self, driver, password_register):
+        password_tf = driver.find_element(By.CSS_SELECTOR, self.LOGIN_PASSWORD_ACCOUNT)
+        password_tf.clear()
+        password_tf.send_keys(password_register)
+        logger.info("input password successfully")
+        
+        
+    def click_logon_button (self, driver):
+        logon_btn_element = driver.find_element(By.CSS_SELECTOR, self.LOGIN_BTN)
+        logon_btn_element.click()
+        
